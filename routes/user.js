@@ -76,7 +76,7 @@ router.route("/login").post((req, res) => {
   
         }
         if (result) {
-          let token = jwt.sign({phone : phone}, 'belcaidKey', (err, token) =>{
+          let token = jwt.sign({phone : phone}, 'belcaidKey' , { expiresIn: '1h' }, (err, token) =>{
             res.json({
               token : token
             })
